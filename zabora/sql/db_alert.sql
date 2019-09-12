@@ -20,7 +20,8 @@ SELECT
 FROM
     oneday
 WHERE
-    ORIGINATING_TIMESTAMP > systimestamp-60/1440
+    adr_home LIKE '%/&1'
+    AND ORIGINATING_TIMESTAMP > systimestamp-60/1440
     AND message_text LIKE '%ORA-%'
     AND message_text NOT LIKE '%result of ORA-609%'
     AND message_text NOT LIKE '%result of ORA-28%'
